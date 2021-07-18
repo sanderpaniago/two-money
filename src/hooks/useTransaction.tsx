@@ -32,10 +32,10 @@ export function TransactionProvider({children}: TransactionProviderProps) {
     useEffect(() => {
         api.get('/transactions')
             .then(response=> setTransactions(response.data.transactions))
-    })
+    }, [])
 
     async function createTransaction(transactionInput: TransactionInput) {
-        const { data } = await api.post('/transactions', {
+        const { data } = await api.post('/newTransactions', {
             ...transactionInput,
             createdAt: new Date(),
         })

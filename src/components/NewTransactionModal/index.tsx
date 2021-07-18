@@ -2,10 +2,6 @@ import { FormEvent, useState } from 'react'
 import Modal from 'react-modal'
 import { useTransaction } from '../../hooks/useTransaction'
 
-import closeImg from '../../assets/close.svg'
-import incomeImg from '../../assets/income.svg'
-import outcomeImg from '../../assets/outcome.svg'
-
 import { 
     Container, 
     TransactionTypeContainer, 
@@ -56,7 +52,7 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
                 onClick={onRequestClose} 
                 className="react-modal-close"
             >
-                <img src={closeImg} alt="fechar modal" />
+                <img src='/assets/close.svg' alt="fechar modal" />
             </button>
             <Container onSubmit={handleCreateNewTransaction}>
                 <h2>Cadastrar transação</h2>
@@ -82,7 +78,7 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
                         isActive={type === 'deposit'}
                         activeColor="green"
                     >
-                        <img src={incomeImg} alt="Entrada" />
+                        <img src='/assets/income.svg' alt="Entrada" />
                         <span>Entrada</span>
                     </RadioBox>
 
@@ -92,7 +88,7 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
                         isActive={type === 'withdraw'}
                         activeColor="red"
                     >
-                        <img src={outcomeImg} alt="Saída" />
+                        <img src='/assets/outcome.svg' alt="Saída" />
                         <span>Saída</span>
                     </RadioBox>
                 </TransactionTypeContainer>

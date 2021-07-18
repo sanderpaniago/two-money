@@ -1,0 +1,8 @@
+{
+    "name": "dt-money",
+    "theme_color": "#f0f2f5",
+    "background_color": "#f0f2f5",
+    "display": "browser",
+    "scope": "/",
+    "start_url": "/"
+}
