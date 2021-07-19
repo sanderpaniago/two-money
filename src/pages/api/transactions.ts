@@ -17,9 +17,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 createdAt:  new Date('2021-02-14 11:00:00')
             })
         });
-
-        console.log(transactions)
-
         return res.status(200).json({
             transactions
         })
