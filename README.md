@@ -1,4 +1,4 @@
-# Dt Money
+# Two Money
 
 ## 💻 Projeto
 
@@ -10,7 +10,9 @@ esse projeto utiliza:
 
 Para o front-end:
 - React.js
-- Sass
+- Styled-components
+- Nextjs
+- Firebase
 - TypeScript
 
 ### Executando o projeto
