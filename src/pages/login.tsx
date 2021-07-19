@@ -2,6 +2,7 @@ import React from 'react'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import firebase from '../firebase/clientApp'
 
+import { Container } from '../styles/pages/login'
 
 
 const uiConfig = {
@@ -17,13 +18,12 @@ const uiConfig = {
 
 function Login() {
     return (
-        <div style={{
-            display: 'flex', 
-            minHeight: '100vh'
-            }}>
+        <Container>
+            <section>
                 <p>Faça seu login: </p>
                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-        </div>
+            </section>
+        </Container>
     )
 }
 

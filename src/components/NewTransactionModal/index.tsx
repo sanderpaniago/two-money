@@ -1,6 +1,8 @@
 import { FormEvent, useState } from 'react'
 import Modal from 'react-modal'
 import { useTransaction } from '../../hooks/useTransaction'
+import firebase from '../../firebase/clientApp'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 import { 
     Container, 
@@ -14,6 +16,7 @@ type NewTransactionModalProps = {
 }
 
 export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModalProps) {
+    const [user, loading, error] = useAuthState(firebase.auth())
 
     const { createTransaction } = useTransaction();
 
@@ -30,7 +33,8 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
             title,
             amount,
             category,
-            type
+            type,
+            userId: user.uid
         })
         onRequestClose();
 

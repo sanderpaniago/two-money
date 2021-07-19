@@ -4,7 +4,10 @@ import db  from '../../firebase/admin'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {    
     try {
-        const transactionsDocs = await db.collection('transactions').get();
+        const  {userId } = req.query
+        const transactionsDocs = await db.collection('transactions')
+            .where('userId', '==', userId)
+            .get();
         const transactions = []
         transactionsDocs.forEach(transaction => {
             transactions.push({
@@ -14,6 +17,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                 createdAt:  new Date('2021-02-14 11:00:00')
             })
         });
+
+        console.log(transactions)
 
         return res.status(200).json({
             transactions

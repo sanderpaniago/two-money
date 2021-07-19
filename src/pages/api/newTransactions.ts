@@ -5,11 +5,12 @@ import db  from '../../firebase/admin'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-        const {title, amount, type, category,createdAt} = req.body
+        const {userId, title, amount, type, category, createdAt} = req.body
 
         const transactionRef = db.collection('transactions')
 
         const transaction = await transactionRef.add({
+            userId,
             title,
             amount,
             type,
@@ -22,7 +23,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             ...transactionDoc.data(),
             id: transactionDoc.id
         }
-        console.log(transactionData)
         return res.status(201).json({transaction: transactionData})
 
     } catch (err) {
